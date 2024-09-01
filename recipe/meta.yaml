@@ -1,5 +1,5 @@
 {% set name = "trubar" %}
-{% set version = "0.3.1" %}
+{% set version = "0.3.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/trubar-{{ version }}.tar.gz
-  sha256: a46f7087561ac9528e20354a68b92ea7742db0aae2240b1e6acca5040ca6e9a6
+  sha256: 390ee3f27b138ac67e0900e0d67081521d2cccbe2a3e8669510962c5554d774c
 
 build:
   entry_points:
