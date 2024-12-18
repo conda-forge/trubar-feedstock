@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/trubar-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/trubar-{{ version }}.tar.gz
   sha256: 6db6c0bb1b849c9194bbe1a21f37759a2df622bb0a66fd5d7d81acd0222f3491
 
 build:
@@ -14,16 +14,16 @@ build:
     - trubar = trubar.__main__:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - setuptools >=40.9.0
     - wheel
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - libcst
     - pyyaml
 
@@ -35,6 +35,7 @@ test:
     - trubar --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/janezd/trubar
